@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Heredar la vista de métodos de pago -->
+        <record id="view_pos_payment_method_form_inherit" model="ir.ui.view">
+            <field name="name">pos.payment.method.form.inherit</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="is_digital_refund"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,157 @@
+<templates>
+    <t t-name="pos_digital_refund.DigitalRefundPopup" owl="1">
+        <style>
+            /* Estilos generales del popup */
+            .digital-refund-popup .popup {
+                width: 400px;
+                max-width: 90vw;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                overflow: hidden;
+            }
+            
+            .digital-refund-popup .popup-title {
+                background: #8d4083;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0;
+            }
+            
+            .digital-refund-popup .popup-body {
+                padding: 25px;
+                background: #f8f9fa;
+            }
+            
+            /* Estilos de formulario */
+            .digital-refund-popup .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .digital-refund-popup .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: #2d3748;
+                font-size: 14px;
+            }
+            
+            .digital-refund-popup .form-control {
+                width: 100%;
+                padding: 12px 15px;
+                border: 2px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                background: white;
+                box-sizing: border-box;
+            }
+            
+            .digital-refund-popup .form-control:focus {
+                outline: none;
+                border-color: #667eea;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+            
+            .digital-refund-popup .form-control:hover {
+                border-color: #cbd5e0;
+            }
+            
+            /* Estilos de botones */
+            .digital-refund-popup .popup-footer {
+                display: flex;
+                gap: 12px;
+                padding: 20px;
+                background: white;
+                border-top: 1px solid #e2e8f0;
+            }
+            
+            .digital-refund-popup .btn {
+                flex: 1;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+            }
+            
+            .digital-refund-popup .btn-cancel {
+                background: #f7fafc;
+                color: #4a5568;
+                border: 2px solid #e2e8f0;
+            }
+            
+            .digital-refund-popup .btn-cancel:hover {
+                background: #edf2f7;
+                border-color: #cbd5e0;
+            }
+            
+            .digital-refund-popup .btn-confirm {
+                background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+                color: white;
+            }
+            
+            .digital-refund-popup .btn-confirm:hover {
+                background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+            }
+            
+            /* Efectos de focus para accesibilidad */
+            .digital-refund-popup .btn:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+            }
+            
+            /* Responsive */
+            @media (max-width: 480px) {
+                .digital-refund-popup .popup {
+                    width: 95vw;
+                    margin: 10px;
+                }
+                
+                .digital-refund-popup .popup-body {
+                    padding: 20px 15px;
+                }
+                
+                .digital-refund-popup .popup-footer {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+        </style>
+
+        <div class="popup digital-refund-popup">
+            <div class="popup-title">
+                <t t-esc="props.title"/>
+            </div>
+            <div class="popup-body">
+                <div class="form-group">
+                    <label>Banco</label>
+                    <input type="text" t-model="state.bank" class="form-control" placeholder="Ej: Banesco, Mercantil"/>
+                </div>
+                <div class="form-group">
+                    <label>Cédula/RIF</label>
+                    <input type="text" t-model="state.idNumber" class="form-control" placeholder="Ej: V12345678"/>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono Destino</label>
+                    <input type="text" t-model="state.phone" class="form-control" placeholder="Ej: 04121234567"/>
+                </div>
+                <div class="form-group">
+                    <label>Monto a Devolver</label>
+                    <input type="number" t-model="state.amount" class="form-control" step="0.01" min="0"/>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-cancel" t-on-click="cancel">Cancelar</button>
+                <button class="btn btn-confirm" t-on-click="confirm">Confirmar</button>
+            </div>
+        </div>
+    </t>
+</templates>

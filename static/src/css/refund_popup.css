@@ -1,0 +1,44 @@
+/* static/src/css/refund_popup.css */
+.refund-choice-container {
+    padding: 15px;
+}
+
+.choice-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.choice-item:hover {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+}
+
+.choice-radio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #0d6efd;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.choice-content h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.choice-content p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}

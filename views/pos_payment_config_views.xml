@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_payment_config_form" model="ir.ui.view">
+        <field name="name">pos.payment.config.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Opción 1: Después de la configuración de IoT -->
+            <xpath expr="//div[@class='row mt16 o_settings_container']" position="before">
+                <div class="row mt16 o_settings_container">
+                    <h2>Configuración de Pago Móvil</h2>
+                    <div class="col-12">
+                        <field name="api_url_refund"/>
+                        <field name="default_destination_id"/>
+                        <field name="default_destination_mobile"/>
+                        <field name="default_origin_mobile"/>
+                        <field name="default_twofactor_auth"/>
+                    </div>
+                </div>
+            </xpath>
+            
+            <!-- Opción 2: Alternativa en la sección de settings -->
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting string="Pago Móvil" help="Configuración para vueltos digitales">
+                    <field name="api_url_refund"/>
+                    <field name="default_destination_id"/>
+                    <field name="default_destination_mobile"/>
+                    <field name="default_origin_mobile"/>
+                    <field name="default_twofactor_auth"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

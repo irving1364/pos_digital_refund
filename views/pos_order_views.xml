@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_order_form_inherit" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            
+            <!-- ==================== -->
+            <!-- BOTÓN EN EL HEADER -->
+            <!-- ==================== -->
+            <!-- Primero agrega los campos necesarios (ocultos) -->
+            <xpath expr="//field[@name='amount_paid']" position="after">
+                <field name="has_digital_refund" invisible="1"/>
+                <field name="digital_refund_processed" invisible="1"/>
+                <field name="show_refund_button" invisible="1"/>
+            </xpath>
+            
+            <!-- Luego agrega el botón con la condición -->
+            <xpath expr="//header" position="inside">
+                <button name="action_create_digital_refund" 
+                        type="object" 
+                        string="Crear Vuelto Digital" 
+                        class="btn-primary"
+                        invisible="not show_refund_button"/>
+            </xpath>
+            
+            <!-- ============================ -->
+            <!-- INFORMACIÓN DE PAGO MÓVIL -->
+            <!-- ============================ -->
+            <xpath expr="//field[@name='amount_paid']" position="after">
+                <group string="Pago Móvil" >
+                    <field name="digital_refund_bank" string="Banco" readonly="1"/>
+                    <field name="digital_refund_id_number" string="Cédula/RIF" readonly="1"/>
+                    <field name="digital_refund_phone" string="Teléfono" readonly="1"/>
+                    <field name="digital_refund_amount" string="Monto a Devolver" readonly="1"/>
+                </group>
+            </xpath>
+            
+            <!-- ====================== -->
+            <!-- PESTAÑA DE VUELTOS -->
+            <!-- ====================== -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Vueltos Digitales">
+                    
+                    <!-- Información del cliente -->
+                    <group>
+                        <group string="Datos del Cliente">
+                            <field name="digital_refund_bank" string="Banco" readonly="1"/>
+                            <field name="digital_refund_id_number" string="Cédula/RIF" readonly="1"/>
+                            <field name="digital_refund_phone" string="Teléfono" readonly="1"/>
+                        </group>
+                        
+                        <group string="Montos">
+                            <field name="digital_refund_amount" string="Monto a Devolver" readonly="1"/>
+                            <field name="amount_paid" string="Monto Pagado" readonly="1"/>
+                            <field name="amount_total" string="Monto Total" readonly="1"/>
+                            <field name="amount_return" string="Cambio Calculado" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <separator string="Historial de Vueltos Digitales"/>
+                    
+                    <!-- Lista de vueltos -->
+                    <field name="digital_refund_ids">
+                        <tree>
+                            <field name="name" string="Referencia"/>
+                            <field name="amount" string="Monto"/>
+                            <field name="state" string="Estado"/>
+                            <field name="reference" string="Ref. API"/>
+                            <field name="create_date" string="Fecha"/>
+                        </tree>
+                        
+                        <form>
+                            <group>
+                                <group string="Información General">
+                                    <field name="name" readonly="1"/>
+                                    <field name="pos_order_id" readonly="1"/>
+                                    <field name="amount" readonly="1"/>
+                                    <field name="state" readonly="1"/>
+                                </group>
+                                <group string="Datos de Transacción">
+                                    <field name="reference" readonly="1"/>
+                                    <field name="create_date" readonly="1"/>
+                                </group>
+                            </group>
+                            <group string="Respuesta de la API">
+                                <field name="response" readonly="1" nolabel="1"/>
+                            </group>
+                        </form>
+                    </field>
+                    
+                </page>
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

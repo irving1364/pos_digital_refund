@@ -1,0 +1,36 @@
+<templates>
+    <t t-name="pos_digital_refund.RefundChoicePopup" owl="1">
+        <div class="popup">
+            <div class="popup-title">
+                <t t-esc="props.title"/>
+            </div>
+            <div class="popup-body">
+                <div class="refund-choice-container">
+                    <div class="choice-item" t-on-click="() => state.refundMethod = 'digital'">
+                        <div class="choice-radio">
+                            <span t-if="state.refundMethod === 'digital'">✓</span>
+                        </div>
+                        <div class="choice-content">
+                            <h4>💳 Vuelto Digital (Pago Móvil)</h4>
+                            <p>El cliente recibirá el vuelto por transferencia móvil</p>
+                        </div>
+                    </div>
+                    
+                    <div class="choice-item" t-on-click="() => state.refundMethod = 'cash'">
+                        <div class="choice-radio">
+                            <span t-if="state.refundMethod === 'cash'">✓</span>
+                        </div>
+                        <div class="choice-content">
+                            <h4>💰 Vuelto en Efectivo</h4>
+                            <p>El cliente recibirá el vuelto en efectivo normalmente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-cancel" t-on-click="cancel">Cancelar</button>
+                <button class="btn btn-confirm" t-on-click="confirm">Continuar</button>
+            </div>
+        </div>
+    </t>
+</templates>
