@@ -132,8 +132,37 @@
             </div>
             <div class="popup-body">
                 <div class="form-group">
+
                     <label>Banco</label>
-                    <input type="text" t-model="state.bank" class="form-control" placeholder="Ej: Banesco, Mercantil"/>
+                    <select t-model="state.bank" class="form-control">
+                        <option value="">Seleccione un banco</option>
+                        <option value="0102">0102 - BANCO DE VENEZUELA</option>
+                        <option value="0104">0104 - BANCO VENEZOLANO DE CREDITO</option>
+                        <option value="0105">0105 - BANCO MERCANTIL</option>
+                        <option value="0108">0108 - BBVA PROVINCIAL</option>
+                        <option value="0114">0114 - BANCARIBE</option>
+                        <option value="0115">0115 - BANCO EXTERIOR</option>
+                        <option value="0128">0128 - BANCO CARONI</option>
+                        <option value="0134">0134 - BANESCO</option>
+                        <option value="0137">0137 - BANCO SOFITASA</option>
+                        <option value="0138">0138 - BANCO PLAZA</option>
+                        <option value="0146">0146 - BANGENTE</option>
+                        <option value="0151">0151 - BANCO FONDO COMUN</option>
+                        <option value="0156">0156 - 100% BANCO</option>
+                        <option value="0157">0157 - DELSUR BANCO UNIVERSAL</option>
+                        <option value="0163">0163 - BANCO DEL TESORO</option>
+                        <option value="0168">0168 - BANCRECER</option>
+                        <option value="0169">0169 - R4 BANCO MICROFINANCIERO C.A.</option>
+                        <option value="0171">0171 - BANCO ACTIVO</option>
+                        <option value="0172">0172 - BANCAMIGA BANCO UNIVERSAL, C.A.</option>
+                        <option value="0173">0173 - BANCO INTERNACIONAL DE DESARROLLO</option>
+                        <option value="0174">0174 - BANPLUS</option>
+                        <option value="0175">0175 - BANCO DIGITAL DE LOS TRABAJADORES, BANCO UNIVERSAL</option>
+                        <option value="0177">0177 - BANFANB</option>
+                        <option value="0178">0178 - N58 BANCO DIGITAL BANCO MICROFINANCIERO S A</option>
+                        <option value="0191">0191 - BANCO NACIONAL DE CREDITO</option>
+                    </select>
+
                 </div>
                 <div class="form-group">
                     <label>Cédula/RIF</label>
