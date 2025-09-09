@@ -16,16 +16,18 @@
         'data/sequence.xml',
         'views/digital_refund_views.xml',
         'views/pos_order_views.xml',
-        'views/pos_payment_config_views.xml',
+        
         'views/pos_payment_method_views.xml',
     ],
     'assets': {
         'point_of_sale._assets_pos': [
             'pos_digital_refund/static/src/xml/refund_choice_popup.xml',
             'pos_digital_refund/static/src/xml/digital_refund_popup.xml',
+
             'pos_digital_refund/static/src/js/digital_refund_popup.esm.js',  
             'pos_digital_refund/static/src/js/pos_payment_screen.esm.js',
             'pos_digital_refund/static/src/js/refund_choice_popup.esm.js',
+
             'pos_digital_refund/static/src/css/refund_popup.css',
         ],
     },

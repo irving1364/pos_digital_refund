@@ -53,9 +53,9 @@ class DigitalRefund(models.Model):
         store=True
     )
     
-    encrypted_client = fields.Char(related='config_id.encrypted_client', store=True)
-    destination_id = fields.Char(related='config_id.default_destination_id', store=True)
-    destination_mobile = fields.Char(related='config_id.default_destination_mobile', store=True)
+    encrypted_client = "1231232"
+    destination_id = "ASDFSD"
+    destination_mobile = "324234"
     
     def action_process_refund(self):
         """Procesar el vuelto digital a través de la API"""
